@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4宿 OTA設定 完全ガイド</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Hiragino Sans','Yu Gothic',sans-serif;background:#1a2336;color:#fff;height:100vh;overflow:hidden;}
+.slide{display:none;height:100vh;padding:60px 80px;flex-direction:column;justify-content:center;}
+.slide.active{display:flex;}
+/* Typography */
+.eyebrow{font-size:11px;letter-spacing:4px;color:#6b7d94;text-transform:uppercase;margin-bottom:32px;}
+h1{font-size:52px;font-weight:800;line-height:1.1;color:#fff;}
+h1 span{color:#5ec8d8;}
+.desc{font-size:16px;color:#8a9bb0;margin-top:16px;line-height:1.6;}
+hr{border:none;border-top:1px solid #2d3f56;margin:32px 0;}
+.footer{font-size:12px;color:#6b7d94;display:flex;gap:48px;}
+/* Section header */
+h2{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#5ec8d8;margin-bottom:24px;}
+/* Tables */
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th{background:#0f1a28;color:#5ec8d8;padding:10px 14px;text-align:left;font-weight:600;font-size:11px;letter-spacing:1px;}
+td{padding:9px 14px;border-bottom:1px solid #1e2e42;color:#c8d6e8;}
+tr:hover td{background:#1e2e42;}
+.tag{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700;}
+.tag.ok{background:#1a4a3a;color:#4dd9a0;}
+.tag.reg{background:#3a3010;color:#d4a843;}
+.tag.ng{background:#3a1010;color:#d45050;}
+.tag.tbd{background:#1a2336;color:#6b7d94;border:1px solid #2d3f56;}
+/* Grid */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.card{background:#0f1a28;border:1px solid #2d3f56;border-radius:8px;padding:20px;}
+.card h3{font-size:13px;color:#5ec8d8;margin-bottom:12px;letter-spacing:1px;}
+.card .num{font-size:28px;font-weight:800;color:#fff;}
+.card .sub{font-size:11px;color:#6b7d94;margin-top:4px;}
+/* Nav */
+nav{position:fixed;bottom:32px;right:48px;display:flex;gap:12px;z-index:100;}
+nav button{background:#0f1a28;border:1px solid #2d3f56;color:#8a9bb0;padding:8px 20px;border-radius:4px;cursor:pointer;font-size:13px;font-family:inherit;}
+nav button:hover{background:#1e2e42;color:#fff;}
+.slide-count{position:fixed;bottom:36px;left:48px;font-size:11px;color:#6b7d94;letter-spacing:2px;}
+/* Rank colors */
+.rank-a{color:#4dd9a0;}
+.rank-b{color:#5ec8d8;}
+.rank-c{color:#d4a843;}
+.rank-d{color:#e07d3a;}
+.rank-e{color:#d45050;}
+.highlight{background:#0f1a28;border-left:3px solid #5ec8d8;padding:12px 16px;border-radius:0 6px 6px 0;margin:8px 0;font-size:13px;}
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide active" id="s1">
+  <div class="eyebrow">3.9 MILES PROJECT — GIVES VALUES LLC</div>
+  <h1>4宿 OTA設定<br><span>完全ガイド</span></h1>
+  <p class="desc">料金設定・部屋タイプ・施設説明文 | じゃらん・楽天・Airbnb・Booking.com・Expedia対応</p>
+  <hr>
+  <div class="footer">
+    <span>作成日：2026年4月14日</span>
+    <span>作成：Gives Values LLC / 鈴木 勇人</span>
+    <span>対象宿：awai・もやい・浬・和泉屋</span>
+  </div>
+</div>
+
+<!-- SLIDE 2: 宿スペック -->
+<div class="slide" id="s2">
+  <h2>01 — 宿 基本スペック</h2>
+  <table>
+    <tr>
+      <th>項目</th><th>舫 CTA（民泊）</th><th>間 CTB（旅館業）</th><th>浬 CTC（旅館業）</th><th>和泉屋（旅館業）</th>
+    </tr>
+    <tr><td>定員</td><td>4名</td><td>8名</td><td>6名</td><td>5名</td></tr>
+    <tr><td>面積</td><td>55㎡</td><td>—</td><td>66㎡</td><td>—</td></tr>
+    <tr><td>寝室</td><td>2室</td><td>3室</td><td>要確認</td><td>要確認</td></tr>
+    <tr><td>チェックイン</td><td>15:00〜21:00</td><td>15:00〜</td><td>15:00〜</td><td>15:00〜</td></tr>
+    <tr><td>チェックアウト</td><td>10:30</td><td>〜11:00</td><td>〜11:00</td><td>〜11:00</td></tr>
+    <tr><td>清掃単価</td><td>¥5,500</td><td>¥7,700</td><td>¥7,700</td><td>¥7,700</td></tr>
+    <tr><td>特徴</td><td>港ビュー・Aesop<br>Booking9.6/10</td><td>土間K・暖炉<br>食事オプション</td><td>焼杉外壁<br>新築・和泉屋隣</td><td>太平洋ビュー<br>元釣船宿</td></tr>
+  </table>
+</div>
+
+<!-- SLIDE 3: OTA状況 -->
+<div class="slide" id="s3">
+  <h2>02 — OTA掲載状況</h2>
+  <table>
+    <tr><th>OTA</th><th>舫（民泊）</th><th>間（旅館業）</th><th>浬（旅館業）</th><th>備考</th></tr>
+    <tr>
+      <td>Airbnb</td>
+      <td><span class="tag ok">✅稼働</span></td>
+      <td><span class="tag ok">✅稼働</span></td>
+      <td><span class="tag tbd">未着手</span></td>
+      <td>民泊・旅館業OK</td>
+    </tr>
+    <tr>
+      <td>Booking.com</td>
+      <td><span class="tag ok">✅稼働</span></td>
+      <td><span class="tag ok">✅稼働</span></td>
+      <td><span class="tag tbd">未着手</span></td>
+      <td>Genius割引注意</td>
+    </tr>
+    <tr>
+      <td>Yahoo!トラベル</td>
+      <td><span class="tag reg">🟡登録中</span></td>
+      <td><span class="tag reg">🟡登録中</span></td>
+      <td><span class="tag reg">🟡登録中</span></td>
+      <td>審査通過済・販売前</td>
+    </tr>
+    <tr>
+      <td>じゃらん</td>
+      <td><span class="tag ng">❌民泊不可</span></td>
+      <td><span class="tag reg">🟡登録中</span></td>
+      <td><span class="tag reg">🟡登録中</span></td>
+      <td>担当者連絡待ち</td>
+    </tr>
+    <tr>
+      <td>楽天トラベル</td>
+      <td><span class="tag ng">❌民泊不可</span></td>
+      <td><span class="tag reg">🟡入力中</span></td>
+      <td><span class="tag reg">🟡入力中</span></td>
+      <td>今日料金入力</td>
+    </tr>
+    <tr>
+      <td>Expedia / Hotels.com</td>
+      <td><span class="tag tbd">未申請</span></td>
+      <td><span class="tag tbd">未申請</span></td>
+      <td><span class="tag tbd">未申請</span></td>
+      <td>来週Airhostから申請</td>
+    </tr>
+    <tr>
+      <td>STAYJAPAN</td>
+      <td><span class="tag tbd">未申請</span></td>
+      <td>—</td>
+      <td>—</td>
+      <td>舫専用・手数料3%</td>
+    </tr>
+    <tr>
+      <td>Relux</td>
+      <td><span class="tag ng">❌不可</span></td>
+      <td><span class="tag tbd">フェーズ2</span></td>
+      <td><span class="tag tbd">フェーズ2</span></td>
+      <td>口コミ20件後に申請</td>
+    </tr>
+  </table>
+</div>
+
+<!-- SLIDE 4: 料金マトリクス -->
+<div class="slide" id="s4">
+  <h2>03 — 料金マトリクス（1室あたり）</h2>
+  <table style="margin-bottom:20px;">
+    <tr><th>ランク</th><th>区分</th><th>対象日</th><th>舫 4名</th><th>間 8名</th><th>浬 6名</th></tr>
+    <tr>
+      <td><strong class="rank-a">A</strong></td><td>平日スタンダード</td><td>日〜木</td>
+      <td class="rank-a">¥28,000</td><td class="rank-a">¥38,000</td><td class="rank-a">¥33,000</td>
+    </tr>
+    <tr>
+      <td><strong class="rank-b">B</strong></td><td>週末スタンダード</td><td>金・土</td>
+      <td class="rank-b">¥35,000</td><td class="rank-b">¥48,000</td><td class="rank-b">¥42,000</td>
+    </tr>
+    <tr>
+      <td><strong class="rank-c">C</strong></td><td>準繁忙期</td><td>祝前日・秋</td>
+      <td class="rank-c">¥38,000</td><td class="rank-c">¥52,000</td><td class="rank-c">¥45,000</td>
+    </tr>
+    <tr>
+      <td><strong class="rank-d">D</strong></td><td>繁忙期（GW・お盆）</td><td>4/29〜5/5・8/10〜8/20</td>
+      <td class="rank-d">¥42,000</td><td class="rank-d">¥57,000</td><td class="rank-d">¥50,000</td>
+    </tr>
+    <tr>
+      <td><strong class="rank-e">E</strong></td><td>超繁忙期（年末年始）</td><td>12/25〜1/7</td>
+      <td class="rank-e">¥50,000</td><td class="rank-e">¥68,000</td><td class="rank-e">¥60,000</td>
+    </tr>
+  </table>
+  <div class="highlight">競合 なかじゅく / NAKAJUKU（露天風呂・サウナ）：平日 ¥42,700 / GW ¥79,300 ← GW差額 ¥22,300 の値上げ余地あり</div>
+</div>
+
+<!-- SLIDE 5: 楽天入力値 -->
+<div class="slide" id="s5">
+  <h2>04 — 楽天トラベル 入力値（1人あたり換算）</h2>
+  <div class="grid-2">
+    <div>
+      <div class="card" style="margin-bottom:16px;">
+        <h3>間（CTB）最大8名</h3>
+        <table>
+          <tr><th>人数</th><th class="rank-a">A 平日</th><th class="rank-b">B 週末</th><th class="rank-d">D GW</th></tr>
+          <tr><td>1名</td><td>¥38,000</td><td>¥48,000</td><td>¥57,000</td></tr>
+          <tr><td>2名</td><td>¥19,000</td><td>¥24,000</td><td>¥28,500</td></tr>
+          <tr><td>3名</td><td>¥12,700</td><td>¥16,000</td><td>¥19,000</td></tr>
+          <tr><td>4名</td><td>¥9,500</td><td>¥12,000</td><td>¥14,300</td></tr>
+          <tr><td>5名以上</td><td>¥7,600</td><td>¥9,600</td><td>¥11,400</td></tr>
+        </table>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:16px;">
+        <h3>浬（CTC）最大6名</h3>
+        <table>
+          <tr><th>人数</th><th class="rank-a">A 平日</th><th class="rank-b">B 週末</th><th class="rank-d">D GW</th></tr>
+          <tr><td>1名</td><td>¥33,000</td><td>¥42,000</td><td>¥50,000</td></tr>
+          <tr><td>2名</td><td>¥16,500</td><td>¥21,000</td><td>¥25,000</td></tr>
+          <tr><td>3名</td><td>¥11,000</td><td>¥14,000</td><td>¥16,700</td></tr>
+          <tr><td>4名</td><td>¥8,300</td><td>¥10,500</td><td>¥12,500</td></tr>
+          <tr><td>5名以上</td><td>¥6,600</td><td>¥8,400</td><td>¥10,000</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="highlight">フォーム設定：「曜日別」を選択 / 楽天トラベル欄＋通常料金欄 両方に同じ値 / 子供料金：小学生＝大人と同じ・幼児＝なし</div>
+</div>
+
+<!-- SLIDE 6: Airhost設定 + カレンダー -->
+<div class="slide" id="s6">
+  <h2>05 — Airhost 設定値＆月別カレンダー</h2>
+  <div class="grid-2">
+    <div>
+      <table style="margin-bottom:12px;">
+        <tr><th>設定</th><th>舫</th><th>間</th><th>浬</th></tr>
+        <tr><td>平日ベース（A）</td><td class="rank-a">¥28,000</td><td class="rank-a">¥38,000</td><td class="rank-a">¥33,000</td></tr>
+        <tr><td>金・土加算</td><td>+¥7,000</td><td>+¥10,000</td><td>+¥9,000</td></tr>
+        <tr><td>GW 4/29〜5/5（D）</td><td class="rank-d">¥42,000</td><td class="rank-d">¥57,000</td><td class="rank-d">¥50,000</td></tr>
+        <tr><td>お盆 8/10〜8/20（D）</td><td class="rank-d">¥42,000</td><td class="rank-d">¥57,000</td><td class="rank-d">¥50,000</td></tr>
+        <tr><td>年末年始（E）</td><td class="rank-e">¥50,000</td><td class="rank-e">¥68,000</td><td class="rank-e">¥60,000</td></tr>
+      </table>
+    </div>
+    <div>
+      <table>
+        <tr><th>月</th><th>日</th><th>月〜木</th><th>金</th><th>土</th></tr>
+        <tr><td>4月</td><td class="rank-a">A</td><td class="rank-a">A</td><td class="rank-b">B</td><td class="rank-b">B</td></tr>
+        <tr><td>5月GW</td><td class="rank-d">D</td><td class="rank-d">D</td><td class="rank-d">D</td><td class="rank-d">D</td></tr>
+        <tr><td>6〜7月</td><td class="rank-a">A</td><td class="rank-a">A</td><td class="rank-b">B</td><td class="rank-b">B</td></tr>
+        <tr><td>8月お盆</td><td class="rank-c">C</td><td class="rank-c">C</td><td class="rank-d">D</td><td class="rank-d">D</td></tr>
+        <tr><td>9〜10月</td><td class="rank-a">A</td><td class="rank-a">A</td><td class="rank-b">B</td><td class="rank-b">B</td></tr>
+        <tr><td>11月</td><td class="rank-a">A</td><td class="rank-a">A</td><td class="rank-b">B</td><td class="rank-c">C</td></tr>
+        <tr><td>12月年末</td><td class="rank-c">C</td><td class="rank-c">C</td><td class="rank-d">D</td><td class="rank-e">E</td></tr>
+        <tr><td>1月年始</td><td class="rank-d">D</td><td class="rank-a">A</td><td class="rank-b">B</td><td class="rank-b">B</td></tr>
+        <tr><td>2〜3月</td><td class="rank-a">A</td><td class="rank-a">A</td><td class="rank-b">B</td><td class="rank-b">B</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7: アクション + 収益 -->
+<div class="slide" id="s7">
+  <h2>06 — アクション計画 ＆ 収益シミュレーション</h2>
+  <div class="grid-2">
+    <div>
+      <div class="card">
+        <h3>🔴 今週中（GW=残り15日）</h3>
+        <table>
+          <tr><td>1</td><td>楽天 間・浬の料金入力</td></tr>
+          <tr><td>2</td><td>Yahoo! GW料金設定 → 販売開始</td></tr>
+          <tr><td>3</td><td>Airhost ベース価格変更</td></tr>
+          <tr><td>4</td><td>Airhost GWカレンダー設定</td></tr>
+          <tr><td>5</td><td>Booking.com 同期確認</td></tr>
+        </table>
+        <div style="margin-top:12px;">
+        <h3 style="margin-top:0;">🟡 来週（4/21〜）</h3>
+        <table>
+          <tr><td>6</td><td>Expedia申請（Airhostから）</td></tr>
+          <tr><td>7</td><td>浬 Airbnb・Booking開始</td></tr>
+          <tr><td>8</td><td>STAYJAPAN 舫で申請</td></tr>
+        </table>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h3>清掃収益シミュレーション</h3>
+        <table>
+          <tr><th>稼働率</th><th>月次清掃収益</th></tr>
+          <tr><td>30%（9泊）</td><td>¥311,100</td></tr>
+          <tr><td>50%（15泊）</td><td>¥509,700</td></tr>
+          <tr><td class="rank-a">60%（18泊）</td><td class="rank-a">¥622,200</td></tr>
+          <tr><td>75%（22泊）</td><td>¥743,600</td></tr>
+        </table>
+        <div style="margin-top:16px;">
+        <h3>月次収益 全体像</h3>
+        <table>
+          <tr><th>項目</th><th>年内目標</th></tr>
+          <tr><td>清掃収益（4宿）</td><td class="rank-a">¥620,000+</td></tr>
+          <tr><td>運営補助</td><td>¥50,000</td></tr>
+          <tr><td>E1施設管理（7月〜）</td><td>¥200,000</td></tr>
+          <tr><td>Endless Wag</td><td>¥100,000</td></tr>
+          <tr><td><strong>合計目標</strong></td><td class="rank-a"><strong>¥970,000+</strong></td></tr>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-count" id="counter">1 / 7</div>
+<nav>
+  <button onclick="prev()">← PREV</button>
+  <button onclick="next()">NEXT →</button>
+</nav>
+
+<script>
+let cur = 0;
+const slides = document.querySelectorAll('.slide');
+const counter = document.getElementById('counter');
+function show(n) {
+  slides.forEach(s => s.classList.remove('active'));
+  slides[n].classList.add('active');
+  counter.textContent = (n+1) + ' / ' + slides.length;
+}
+function next() { if(cur < slides.length-1) show(++cur); }
+function prev() { if(cur > 0) show(--cur); }
+document.addEventListener('keydown', e => {
+  if(e.key==='ArrowRight'||e.key==='ArrowDown') next();
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp') prev();
+});
+</script>
+</body>
+</html>
